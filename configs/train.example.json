@@ -1,0 +1,23 @@
+{
+  "bands": 331,
+  "input_size": 50,
+  "feat_dim": 128,
+  "num_classes": 5,
+  "epochs": 60,
+  "batch_size": 16,
+  "learning_rate": 0.001,
+  "weight_decay": 0.0001,
+  "temperature": 0.08,
+  "lambda_mcl": 0.25,
+  "source_mass_single": 0.4,
+  "source_mass_mix3": 0.6,
+  "sigma_n": 0.01,
+  "max_shift": 1.0,
+  "band_dropout_p": 0.05,
+  "rho": 0.5,
+  "lambda_feat": 0.1,
+  "lambda_asf": 0.05,
+  "num_workers": 0,
+  "expected_single_cubes": 80,
+  "expected_mix3_cubes": 20
+}

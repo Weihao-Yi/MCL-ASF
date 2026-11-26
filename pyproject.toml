@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mcl-asf"
+version = "0.1.1"
+description = "Multi-perturbation Spectral-Spatial Complementary Representation with Metric Contrastive Learning and Adaptive Spectral Fusion"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = ["torch>=1.12", "numpy>=1.21"]
+
+[tool.setuptools]
+packages = ["mcl_asf"]

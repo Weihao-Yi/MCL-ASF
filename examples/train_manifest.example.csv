@@ -1,0 +1,6 @@
+patch_path,label,condition,source,cube_id,split
+../private_data/patch_0001.npy,0,indoor_single_45klux,indoor_single,cube_001,train
+../private_data/patch_0002.npy,1,indoor_single_65klux,indoor_single,cube_002,train
+../private_data/patch_0003.npy,2,indoor_mix3_65klux,indoor_mix3,cube_003,train
+../private_data/patch_0004.npy,3,indoor_mix3_65klux,indoor_mix3,cube_003,train
+../private_data/patch_0005.npy,4,indoor_single_65klux,indoor_single,cube_004,train

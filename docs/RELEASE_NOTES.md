@@ -1,0 +1,12 @@
+# Code release scope and provenance
+
+- The **MSCR, ASF, perturbation, MCL, feature-consistency and ASF-consistency calculations** in `mcl_asf/` are drawn from the original `37_mcl_asf_paper_aligned_core_v2.py`. The public release retains the loss and perturbation calculations. Spatial adaptive pooling was changed from 4 × 4 to 1 × 1 and the projection from 2048→128 to 128→128 to align the default parameter count with the revised manuscript. This is a structural change; original experimental checkpoint equivalence has not been verified.
+- The internal v2 file had two functions named `load_indoor_training_dataframe`; the latter overwrote the former. The public release avoids this duplicate through an independent, explicit CSV manifest reader.
+- Three acquisition-condition IDs are defined: `indoor_single_45klux`, `indoor_single_65klux`, `indoor_mix3_65klux`.
+- Public training and inference interfaces are **new adapters**, not verbatim reproductions of the internal Windows-path and ROI-specific experimental scripts. Users must verify them against their own data pipeline.
+- Training defaults include the paper's documented settings: 331 spectral bands, 50x50 spatial patches, 128-dimensional features, AdamW, 60 epochs, lr=1e-3, weight_decay=1e-4, batch_size=16, temperature=0.08, lambda_mcl=0.25, rho=0.50, lambda_feat=0.10 and lambda_asf=0.05. Perturbation settings match the revised manuscript: sigma_n=0.01, max_shift=1.0, band_dropout_p=0.05.
+- The published experimental claims and dataset sizes have **not been reproduced** in this clean release. There are **no pretrained weights and no dataset**.
+- **Architecture incompatibility:** early `train_mcl_asf_sc_v2.py` / `mcl_asf_sc_v2_best.pth` used a feature-level ASF module with different layer names, dimensions and forward outputs. Do not load that checkpoint into `MCLASFPaperAligned`.
+- `infer_cube.py` implements generic stride-grid inference on HWC NumPy cubes. It saves raw interpolated class probabilities without any additional percentile clipping. This replaces visualization-oriented score-map postprocessing for public examples. It is not a claim of evaluation-protocol identity with unpublished full-scene experiments.
+- This repository does **not** claim that arbitrary training seeds or hardware reproduce published table values; source data, selected hyperparameters and complete run manifests are needed.
+- No license file is included: repository owner must choose and approve a license before granting reuse rights.
